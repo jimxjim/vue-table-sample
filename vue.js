@@ -23,7 +23,7 @@ const app = new Vue({
           })
         })
       }
-      return data.slice((this.nowPage - 1) * 5,this.nowPage * 5)
+      return { data: data.slice((this.nowPage - 1) * 5,this.nowPage * 5), length: data.length}
     },
   },
   methods: {

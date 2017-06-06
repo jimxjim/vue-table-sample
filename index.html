@@ -15,7 +15,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="data in filteredData" @click="showInfo(data)" v-cloak>
+          <tr v-for="data in filteredData.data" @click="showInfo(data)" v-cloak>
             <td v-for="value in data" v-cloak>{{ value }}</td>
             <!--or use like this-->
             <!--
@@ -30,8 +30,7 @@
       <div>{{ countDownNum === 0 ? '' : `get data from api coutdown: ${countDownNum}` }}</div>
       <div style="margin-top: 50px; display: flex;">
         <div
-          v-if="searchName === ''"
-          v-for="page in (Math.ceil(tableData.length / 5))"
+          v-for="page in (Math.ceil(filteredData.length / 5))"
           :class="{ pagination: true, select: page === nowPage}"
           @click="selectPage(page)">
           {{ page }}</div>
