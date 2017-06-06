@@ -19,7 +19,7 @@ const app = new Vue({
       if (searchName) {
         data = data.filter(function (row) {
           return Object.keys(row).some(function (key) {
-            return String(row[key]).toLowerCase().indexOf(searchName) > -1
+            return key === 'name' && String(row[key]).toLowerCase().indexOf(searchName) > -1
           })
         })
       }
