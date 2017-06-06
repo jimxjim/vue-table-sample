@@ -50,7 +50,6 @@ const app = new Vue({
     ajaxData() {
       that = this;
       axios.get(`https://gist.githubusercontent.com/jimxjim/39e14f5b58ab3451b8cc69fbf96a5d65/raw/b47d4cfa9d757552b91ae4c81ee7da17d7c9c806/test%2520data`).then(function (response) {
-        console.log(response.data)
         that.tableData = response.data;
       });
     },
