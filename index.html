@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>test vue</title>
+    <link rel="stylesheet" type="text/css" href="main.css"></link>
+  </head>
+
+  <body>
+    <div id="app">
+      <span>Search by name</span>
+      <input v-model="searchName" />
+      <table>
+        <thead>
+          <tr>
+            <th v-for="data in theadName">{{ data }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="data in filteredData" @click="showInfo(data)" v-cloak>
+            <td v-for="value in data" v-cloak>{{ value }}</td>
+            <!--or use like this-->
+            <!--
+            <td>{{ data.name }}</td>
+            <td>{{ data.email }}</td>
+            <td>{{ data.phone }}</td>
+            <td>{{ data.grade }}</td>
+            -->
+          </tr>
+        </tbody>
+      </table>
+      <div>{{ countDownNum === 0 ? '' : `get data from api coutdown: ${countDownNum}` }}</div>
+      <div style="margin-top: 50px; display: flex;">
+        <div
+          v-if="searchName === ''"
+          v-for="page in (Math.ceil(tableData.length / 5))"
+          :class="{ pagination: true, select: page === nowPage}"
+          @click="selectPage(page)">
+          {{ page }}</div>
+      </div>
+    </div>
+  </body>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./vue.js"></script>
+
+</html>
