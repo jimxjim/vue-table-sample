@@ -7,7 +7,7 @@
   <body>
     <div id="app">
       <span>Search by name</span>
-      <input v-model="searchName" />
+      <input v-model="searchName" @keyup="toFirstPage()" />
       <table>
         <thead>
           <tr>

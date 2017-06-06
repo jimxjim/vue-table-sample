@@ -27,6 +27,9 @@ const app = new Vue({
     },
   },
   methods: {
+    toFirstPage() {
+      this.nowPage = 1;
+    },
     showInfo(data) {
       if (!data) { return ''; }
       var request = [];
